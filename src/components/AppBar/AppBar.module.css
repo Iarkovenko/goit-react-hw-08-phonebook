@@ -1,0 +1,33 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid gray;
+  padding: 15px 30px;
+}
+.box {
+  display: flex;
+}
+.linkActive {
+  border-bottom: 2px solid gray;
+}
+.link {
+  position: relative;
+  font-weight: normal;
+  font-size: 18px;
+  color: black;
+  padding: 5px;
+}
+.link:first-of-type {
+  margin-right: 25px;
+}
+.linkDark {
+  position: relative;
+  font-weight: normal;
+  font-size: 18px;
+  color: white;
+  padding: 5px;
+}
+.linkDark:first-of-type {
+  margin-right: 25px;
+}

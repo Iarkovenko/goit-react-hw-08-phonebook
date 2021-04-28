@@ -1,0 +1,32 @@
+.bodyLight {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(3deg, #16014c, #e6d16c);
+  background-size: cover;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  color: black;
+  text-align: center;
+  padding-bottom: 60px;
+}
+.bodyDark {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(3deg, #e6d16c, #16014c);
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  color: black;
+  text-align: center;
+  padding-bottom: 60px;
+}
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+}
+

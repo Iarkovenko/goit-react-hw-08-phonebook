@@ -1,0 +1,29 @@
+.btnLight {
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  display: inline-block;
+  margin-left: 20px;
+  border: 2px solid gray;
+  border-radius: 8px;
+}
+.btnDark {
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  display: inline-block;
+  margin-left: 20px;
+  border: 2px solid gray;
+  border-radius: 8px;
+}
+.iconLight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.iconDark {
+  fill: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

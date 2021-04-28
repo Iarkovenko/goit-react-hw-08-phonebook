@@ -1,0 +1,20 @@
+.btnLight {
+  background-color: transparent;
+  border: none;
+  padding: 11px 10px;
+  display: inline-block;
+  margin-left: 20px;
+  border: 2px solid gray;
+  border-radius: 8px;
+}
+.btnDark {
+  background-color: transparent;
+  border: none;
+  padding: 11px 10px;
+  display: inline-block;
+  margin-left: 20px;
+  border: 2px solid gray;
+  border-radius: 8px;
+  color: white;
+}
+

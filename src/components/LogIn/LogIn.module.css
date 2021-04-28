@@ -1,0 +1,66 @@
+.box {
+  display: flex;
+  align-items: center;
+}
+.user {
+  height: 44px;
+}
+.img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid gray;
+  margin-bottom: -30px;
+  margin-left: auto;
+}
+.nameLight {
+  margin-bottom: 0;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 0px 44px 0px 6px;
+  border-radius: 4px;
+  border: 2px solid gray;
+  background-color: gray;
+  margin-right: 1px;
+}
+.nameDark {
+  margin-bottom: 0;
+  font-size: 13px;
+  font-weight: 800;
+  padding: 0px 44px 0px 6px;
+  border-radius: 4px;
+  border: 2px solid gray;
+  background-color: gray;
+  margin-right: 1px;
+  color: white;
+}
+.btnLight {
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  display: inline-block;
+  margin-left: 20px;
+  border: 2px solid gray;
+  border-radius: 8px;
+}
+.btnDark {
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  display: inline-block;
+  margin-left: 20px;
+  border: 2px solid gray;
+  border-radius: 8px;
+  color: white;
+}
+.iconLight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.iconDark {
+  fill: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
