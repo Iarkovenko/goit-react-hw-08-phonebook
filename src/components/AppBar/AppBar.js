@@ -10,7 +10,7 @@ import BtnLanguage from "../BtnLanguage";
 import { authSelectors } from '../../redux/auth';
 import styles from "./AppBar.module.css";
 
-const AppBar = ({ t, themeLight, isAuthenticated }) => {
+const AppBar = ({ t, themeLight, isAuthenticated}) => {
   return (
     <header className={styles.header}>
       <div className={styles.box}>
@@ -32,8 +32,7 @@ const AppBar = ({ t, themeLight, isAuthenticated }) => {
         </NavLink>
       </div>
       <div className={styles.box}>
-       {isAuthenticated ?  <LogIn /> :
-        <AuthNav />}
+        {isAuthenticated ? <LogIn /> : <AuthNav />}
         <BtnTheme />
         <BtnLanguage />
       </div>
@@ -43,7 +42,7 @@ const AppBar = ({ t, themeLight, isAuthenticated }) => {
 const mapStateToProps = (state) => {
   return {
     themeLight: getTheme(state),
-    isAuthenticated: authSelectors.getIsAuthenticated(state)
+    isAuthenticated: authSelectors.getIsAuthenticated(state),
   };
 };
 

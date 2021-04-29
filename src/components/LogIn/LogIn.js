@@ -2,13 +2,13 @@ import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { withTranslation } from "react-i18next";
 import { getTheme } from "../../redux/theme/theme-selectors";
-import { authSelectors } from '../../redux/auth';
+import { authSelectors, authOperations } from '../../redux/auth';
 import styles from "./LogIn.module.css";
 import routes from '../../routes';
 import authSprite from "./login-sprite.svg";
 import avatar from "./avatar.png";
 
-const LogIn = ({ themeLight, name }) => {
+const LogIn = ({ themeLight, name, onClick }) => {
   return (
     <div className={styles.box}>
       <div className={styles.user}>
@@ -19,7 +19,7 @@ const LogIn = ({ themeLight, name }) => {
         exact
         to={routes.home}
         className={themeLight ? styles.btnLight : styles.btnDark}
-        //   onClick={onClick}
+          onClick={onClick}
       >
         {themeLight ? (
           <svg className={styles.iconLight} width="20" height="20">
@@ -41,5 +41,9 @@ const mapStateToProps = (state) => {
     name: authSelectors.getUsersName(state)
   };
 };
-
-export default withTranslation()(connect(mapStateToProps)(LogIn));
+const mapDispatchToProps = {
+  onClick: authOperations.logOut,
+}
+export default withTranslation()(
+  connect(mapStateToProps, mapDispatchToProps)(LogIn)
+);

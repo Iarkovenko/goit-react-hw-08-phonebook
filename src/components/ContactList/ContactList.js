@@ -1,22 +1,24 @@
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { phonebookOperations, phonebookSelectors } from '../../redux/phonebook';
-import { getTheme } from '../../redux/theme/theme-selectors';
-import deleteImg from './delete.png';
-import styles from './ContactList.module.css';
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { phonebookOperations, phonebookSelectors } from "../../redux/phonebook";
+import { getTheme } from "../../redux/theme/theme-selectors";
+import deleteImg from "./delete.png";
+import styles from "./ContactList.module.css";
 
 const ContactList = ({ contacts, themeLight, delContact }) => {
   return (
     <ul className={styles.list}>
-      {contacts.map(item => (
+      {contacts.map((item) => (
         <li
           className={themeLight ? styles.item : styles.itemDark}
           key={item.id}
         >
-          <span className={styles.name}>{item.name}</span>
+          <span className={themeLight ? styles.name : styles.nameDark}>
+            {item.name}
+          </span>
           <span>{item.number}</span>
           <button className={styles.btn} onClick={() => delContact(item.id)}>
-            {' '}
+            {" "}
             <img className={styles.img} src={deleteImg} alt="" width="10" />
           </button>
         </li>
@@ -31,16 +33,17 @@ ContactList.propTypes = {
   delContact: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     contacts: phonebookSelectors.getVisibleContacts(state),
     themeLight: getTheme(state),
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    delContact: contactId => dispatch(phonebookOperations.delContact(contactId)),
+    delContact: (contactId) =>
+      dispatch(phonebookOperations.delContact(contactId)),
   };
 };
 

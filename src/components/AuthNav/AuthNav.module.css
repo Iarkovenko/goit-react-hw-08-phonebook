@@ -1,5 +1,6 @@
-.box{
-  display: flex;align-items: center;
+.box {
+  display: flex;
+  align-items: center;
 }
 .btnLight {
   background-color: transparent;
@@ -9,6 +10,12 @@
   margin-left: 20px;
   border: 2px solid gray;
   border-radius: 8px;
+}
+.btnLight:hover,
+.btnDark:hover,
+.btnDark:focus,
+.btnLight:focus {
+  background-color: gray;
 }
 .btnDark {
   background-color: transparent;
@@ -20,14 +27,17 @@
   border-radius: 8px;
   color: white;
 }
-.iconLight{
-      display: flex;
+.btnActive {
+  background-color: gray;
+}
+.iconLight {
+  display: flex;
   align-items: center;
   justify-content: center;
 }
-.iconDark{
-    fill: white;
-      display: flex;
+.iconDark {
+  fill: white;
+  display: flex;
   align-items: center;
   justify-content: center;
 }

@@ -11,8 +11,6 @@ import {
   delContactError,
 } from './phonebook-actions';
 
-axios.defaults.baseURL = 'http://localhost:3000/';
-
 const fetchContacts = () => async dispatch => {
   dispatch(fetchContactsRequest());
   try {

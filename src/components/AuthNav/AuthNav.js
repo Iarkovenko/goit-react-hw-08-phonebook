@@ -9,8 +9,12 @@ import authSprite from "./auth-sprite.svg";
 const AuthNav = ({ themeLight }) => {
   return (
     <div className={styles.box}>
-      <NavLink exact
-        to={routes.register} className={themeLight ? styles.btnLight : styles.btnDark}>
+      <NavLink
+        exact
+        to={routes.register}
+        className={themeLight ? styles.btnLight : styles.btnDark}
+        activeClassName={styles.btnActive}
+      >
         {themeLight ? (
           <svg className={styles.iconLight} width="20" height="20">
             <use href={`${authSprite}#icon-user-plus`}></use>
@@ -21,9 +25,11 @@ const AuthNav = ({ themeLight }) => {
           </svg>
         )}
       </NavLink>
-      <NavLink exact
+      <NavLink
+        exact
         to={routes.login}
         className={themeLight ? styles.btnLight : styles.btnDark}
+        activeClassName={styles.btnActive}
         //   onClick={onClick}
       >
         {themeLight ? (

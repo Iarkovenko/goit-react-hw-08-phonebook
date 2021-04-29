@@ -16,6 +16,12 @@
   border: 2px solid gray;
   border-radius: 8px;
 }
+.btnLight:hover,
+.btnDark:hover,
+.btnDark:focus,
+.btnLight:focus {
+  background-color: gray;
+}
 .iconLight {
   display: flex;
   align-items: center;
