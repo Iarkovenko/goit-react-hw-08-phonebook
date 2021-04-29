@@ -1,3 +1,6 @@
+.box{
+  display: flex;align-items: center;
+}
 .btnLight {
   background-color: transparent;
   border: none;

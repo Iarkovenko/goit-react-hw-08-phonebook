@@ -1,16 +1,16 @@
 import { connect } from "react-redux";
+import { NavLink } from "react-router-dom";
 import { withTranslation } from "react-i18next";
 import { getTheme } from "../../redux/theme/theme-selectors";
-import styles from './Auth.module.css';
+import routes from '../../routes';
+import styles from "./AuthNav.module.css";
 import authSprite from "./auth-sprite.svg";
 
-const Auth = ({ themeLight }) => {
+const AuthNav = ({ themeLight }) => {
   return (
-    <div>
-      <button
-        className={themeLight ? styles.btnLight : styles.btnDark}
-        //   onClick={onClick}
-      >
+    <div className={styles.box}>
+      <NavLink exact
+        to={routes.register} className={themeLight ? styles.btnLight : styles.btnDark}>
         {themeLight ? (
           <svg className={styles.iconLight} width="20" height="20">
             <use href={`${authSprite}#icon-user-plus`}></use>
@@ -20,8 +20,9 @@ const Auth = ({ themeLight }) => {
             <use href={`${authSprite}#icon-user-plus`}></use>
           </svg>
         )}
-      </button>
-      <button
+      </NavLink>
+      <NavLink exact
+        to={routes.login}
         className={themeLight ? styles.btnLight : styles.btnDark}
         //   onClick={onClick}
       >
@@ -34,7 +35,7 @@ const Auth = ({ themeLight }) => {
             <use href={`${authSprite}#icon-enter`}></use>
           </svg>
         )}
-      </button>
+      </NavLink>
     </div>
   );
 };
@@ -45,6 +46,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default withTranslation()(
-  connect(mapStateToProps)(Auth)
-);
+export default withTranslation()(connect(mapStateToProps)(AuthNav));

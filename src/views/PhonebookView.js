@@ -7,7 +7,7 @@ import {
   phonebookSelectors,
 } from "../redux/phonebook/";
 import { getTheme } from "../redux/theme/theme-selectors";
-import ContactForm from "../components/Form";
+import ContactForm from "../components/ContactForm";
 import Filter from "../components/Filter";
 import ContactList from "../components/ContactList";
 import styles from "./PhonebookView.module.css";
@@ -20,12 +20,7 @@ class PhonebookView extends Component {
   render() {
     const { themeLight, t } = this.props;
     return (
-      <>
-        <div className={styles.box}>
-          <h1 className={themeLight ? styles.titleLight : styles.titleDark}>
-            {t("title")}
-          </h1>
-        </div>
+      <div className={styles.container}>
         <ContactForm />
         <h2 className={themeLight ? styles.titleLight : styles.titleDark}>
           {t("subtitle")}
@@ -37,7 +32,7 @@ class PhonebookView extends Component {
           </h2>
         )}
         <ContactList />
-      </>
+      </div >
     );
   }
 }

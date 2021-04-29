@@ -3,13 +3,14 @@ import { connect } from "react-redux";
 import { withTranslation } from "react-i18next";
 import { getTheme } from "../../redux/theme/theme-selectors";
 import routes from "../../routes";
-import Auth from "../Auth";
+import AuthNav from "../AuthNav";
 import LogIn from "../LogIn";
 import BtnTheme from "../BtnTheme";
 import BtnLanguage from "../BtnLanguage";
+import { authSelectors } from '../../redux/auth';
 import styles from "./AppBar.module.css";
 
-const AppBar = ({ t, themeLight }) => {
+const AppBar = ({ t, themeLight, isAuthenticated }) => {
   return (
     <header className={styles.header}>
       <div className={styles.box}>
@@ -31,8 +32,8 @@ const AppBar = ({ t, themeLight }) => {
         </NavLink>
       </div>
       <div className={styles.box}>
-        <LogIn />
-        <Auth />
+       {isAuthenticated ?  <LogIn /> :
+        <AuthNav />}
         <BtnTheme />
         <BtnLanguage />
       </div>
@@ -42,7 +43,10 @@ const AppBar = ({ t, themeLight }) => {
 const mapStateToProps = (state) => {
   return {
     themeLight: getTheme(state),
+    isAuthenticated: authSelectors.getIsAuthenticated(state)
   };
 };
 
-export default withTranslation()(connect(mapStateToProps)(AppBar));
+export default withTranslation(["translation", "views"])(
+  connect(mapStateToProps)(AppBar)
+);

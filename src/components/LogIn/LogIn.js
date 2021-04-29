@@ -1,18 +1,23 @@
 import { connect } from "react-redux";
+import { NavLink } from "react-router-dom";
 import { withTranslation } from "react-i18next";
 import { getTheme } from "../../redux/theme/theme-selectors";
+import { authSelectors } from '../../redux/auth';
 import styles from "./LogIn.module.css";
+import routes from '../../routes';
 import authSprite from "./login-sprite.svg";
-import avatar from "./avatar.jpeg";
+import avatar from "./avatar.png";
 
-const LogIn = ({ themeLight }) => {
+const LogIn = ({ themeLight, name }) => {
   return (
     <div className={styles.box}>
       <div className={styles.user}>
         <img className={styles.img} src={avatar} alt="Аватар пользователя" />
-        <h3 className={themeLight ? styles.nameLight : styles.nameDark}>User</h3>
+        <h3 className={themeLight ? styles.nameLight : styles.nameDark}>{name}</h3>
       </div>
-      <button
+      <NavLink
+        exact
+        to={routes.home}
         className={themeLight ? styles.btnLight : styles.btnDark}
         //   onClick={onClick}
       >
@@ -25,7 +30,7 @@ const LogIn = ({ themeLight }) => {
             <use href={`${authSprite}#icon-exit`}></use>
           </svg>
         )}
-      </button>
+      </NavLink>
     </div>
   );
 };
@@ -33,6 +38,7 @@ const LogIn = ({ themeLight }) => {
 const mapStateToProps = (state) => {
   return {
     themeLight: getTheme(state),
+    name: authSelectors.getUsersName(state)
   };
 };
 

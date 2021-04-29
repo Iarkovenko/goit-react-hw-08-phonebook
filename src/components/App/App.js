@@ -7,6 +7,8 @@ import { getTheme } from "../../redux/theme/theme-selectors";
 import AppBar from "../AppBar";
 import HomeView from "../../views/HomeView";
 import PhonebookView from "../../views/PhonebookView";
+import LogInView from '../../views/LogInView';
+import RegisterView from '../../views/RegisterView';
 import NotFoundView from '../../views/NotFoundView';
 import routes from "../../routes";
 import styles from "./App.module.css";
@@ -36,7 +38,10 @@ const App = ({ themeLight }) => (
     <AppBar />
     <Switch>
       <Route exact path={routes.home} component={HomeView} />
+      <Route path={routes.register} component={RegisterView} />
+      <Route path={routes.login} component={LogInView} />
       <Route path={routes.catalog} component={PhonebookView} />
+      
       <Route component={NotFoundView} />
     </Switch>
   </div>

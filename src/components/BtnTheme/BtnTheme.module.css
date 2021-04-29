@@ -2,7 +2,7 @@
   background-color: transparent;
   border: none;
   padding: 10px;
-  display: inline-block;
+  display: block;
   margin-left: 20px;
   border: 2px solid gray;
   border-radius: 8px;
@@ -11,7 +11,7 @@
   background-color: transparent;
   border: none;
   padding: 10px;
-  display: inline-block;
+  display: block;
   margin-left: 20px;
   border: 2px solid gray;
   border-radius: 8px;

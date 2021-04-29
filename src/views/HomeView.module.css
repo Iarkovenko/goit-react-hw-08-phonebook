@@ -1,0 +1,23 @@
+.container {
+  padding-top: 30px;
+  padding-left: 90px;
+  padding-right: 90px;
+}
+.titleLight {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+.titleDark {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: white;
+}
+.descriptionLight {
+  font-size: 22px;
+  line-height: 1.8;
+}
+.descriptionDark {
+  font-size: 22px;
+  line-height: 1.8;
+  color: white;
+}

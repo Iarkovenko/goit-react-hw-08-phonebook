@@ -4,7 +4,7 @@ import {phonebookOperations} from '../../redux/phonebook';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import { getTheme } from '../../redux/theme/theme-selectors';
-import styles from './Form.module.css';
+import styles from './ContactForm.module.css';
 
 
 class ContactForm extends Component {
@@ -48,7 +48,7 @@ class ContactForm extends Component {
         onSubmit={this.handleSubmit}
       >
         <label className={styles.label}>
-          {this.props.t('formName')}
+          {this.props.t('contactFormName')}
           <input
             className={styles.input}
             type="text"
@@ -61,7 +61,7 @@ class ContactForm extends Component {
           />
         </label>
         <label className={styles.label}>
-          {this.props.t('formNumber')}
+          {this.props.t('contactFormNumber')}
           <input
             className={styles.input}
             type="tel"
@@ -77,7 +77,7 @@ class ContactForm extends Component {
           className={this.props.themeLight ? styles.btn : styles.btnDark}
           type="submit"
         >
-          {this.props.t('formBtn')}
+          {this.props.t('contactFormBtn')}
         </button>
       </form>
     );
