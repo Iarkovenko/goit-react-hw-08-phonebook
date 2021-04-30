@@ -6,6 +6,8 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { getTheme } from "../../redux/theme/theme-selectors";
 import AppBar from "../AppBar";
+import PrivateRoute from '../PrivateRoute';
+import PublicRoute from "../PublicRoute";
 import { authOperations } from "../../redux/auth";
 import routes from "../../routes";
 import styles from "./App.module.css";
@@ -45,10 +47,24 @@ class App extends Component {
           }
         >
           <Switch>
-            <Route exact path={routes.home} component={HomeView} />
-            <Route path={routes.register} component={RegisterView} />
-            <Route path={routes.login} component={LogInView} />
-            <Route path={routes.catalog} component={PhonebookView} />
+            <PublicRoute
+              path={routes.register}
+              component={RegisterView}
+              restricted
+              redirectTo={routes.phonebook}
+            />
+            <PublicRoute
+              path={routes.login}
+              component={LogInView}
+              restricted
+              redirectTo={routes.phonebook}
+            />
+            <PublicRoute exact path={routes.home} component={HomeView} />
+            <PrivateRoute
+              path={routes.phonebook}
+              component={PhonebookView}
+              redirectTo="/login"
+            />
 
             <Route component={NotFoundView} />
           </Switch>

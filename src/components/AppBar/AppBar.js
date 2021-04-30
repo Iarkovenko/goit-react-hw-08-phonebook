@@ -22,14 +22,14 @@ const AppBar = ({ t, themeLight, isAuthenticated}) => {
         >
           {t("homeView")}
         </NavLink>
-        <NavLink
+        {isAuthenticated && <NavLink
           exact
           to={routes.phonebook}
           className={themeLight ? styles.link : styles.linkDark}
           activeClassName={styles.linkActive}
         >
           {t("phonebookView")}
-        </NavLink>
+        </NavLink>}
       </div>
       <div className={styles.box}>
         {isAuthenticated ? <LogIn /> : <AuthNav />}
