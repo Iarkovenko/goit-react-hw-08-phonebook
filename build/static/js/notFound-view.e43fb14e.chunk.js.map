@@ -1,0 +1,1 @@
+{"version":3,"sources":["views/NotFoundView.js"],"names":["NotFoundView","props"],"mappings":"kKAEeA,UAFM,SAAAC,GAAW,OAAQ","file":"static/js/notFound-view.e43fb14e.chunk.js","sourcesContent":["const NotFoundView = props => { return (<h1>404</h1>) }\n\nexport default NotFoundView;"],"sourceRoot":""}

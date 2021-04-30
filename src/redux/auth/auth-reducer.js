@@ -29,6 +29,8 @@ const tokenReducers = createReducer(null, {
 });
 
 const errorReducer = createReducer(null, {
+  [registerSuccess]: (_, { payload }) => null,
+  [loginSuccess]: (_, { payload }) => null,
   [registerError]: (_, { payload }) => payload,
   [loginError]: (_, { payload }) => payload,
   [logoutError]: (_, { payload }) => payload,

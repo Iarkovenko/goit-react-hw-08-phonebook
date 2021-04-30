@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import { getTheme } from '../redux/theme/theme-selectors';
-import { authOperations } from '../redux/auth';
+import { authOperations, authSelectors } from '../redux/auth';
 import styles from './RegisterView.module.css';
 
 
@@ -12,6 +12,7 @@ class LogInView extends Component {
     themeLight: PropTypes.bool.isRequired,
     t: PropTypes.func,
     onLogin: PropTypes.func.isRequired,
+    loginFailed: PropTypes.string
   };
 
   state = {
@@ -65,6 +66,9 @@ class LogInView extends Component {
               onChange={this.handleChange}
             />
           </label>
+          {this.props.loginFailed && (
+            <p className={styles.error}>{this.props.loginFailed}</p>
+          )}
           <button
             className={this.props.themeLight ? styles.btn : styles.btnDark}
             type="submit"
@@ -79,7 +83,8 @@ class LogInView extends Component {
 
 const mapStateToProps = state => {
     return {
-        themeLight: getTheme(state),
+      themeLight: getTheme(state),
+      loginFailed: authSelectors.getErrorMessage(state)
     };
 };
 const mapDispatchToProps = {

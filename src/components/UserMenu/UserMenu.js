@@ -3,12 +3,12 @@ import { NavLink } from "react-router-dom";
 import { withTranslation } from "react-i18next";
 import { getTheme } from "../../redux/theme/theme-selectors";
 import { authSelectors, authOperations } from '../../redux/auth';
-import styles from "./LogIn.module.css";
+import styles from "./UserMenu.module.css";
 import routes from '../../routes';
-import authSprite from "./login-sprite.svg";
+import authSprite from "./user-sprite.svg";
 import avatar from "./avatar.png";
 
-const LogIn = ({ themeLight, name, onClick }) => {
+const UserMenu = ({ themeLight, name, onClick }) => {
   return (
     <div className={styles.box}>
       <div className={styles.user}>
@@ -45,5 +45,5 @@ const mapDispatchToProps = {
   onClick: authOperations.logOut,
 }
 export default withTranslation()(
-  connect(mapStateToProps, mapDispatchToProps)(LogIn)
+  connect(mapStateToProps, mapDispatchToProps)(UserMenu)
 );

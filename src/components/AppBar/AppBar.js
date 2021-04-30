@@ -4,7 +4,7 @@ import { withTranslation } from "react-i18next";
 import { getTheme } from "../../redux/theme/theme-selectors";
 import routes from "../../routes";
 import AuthNav from "../AuthNav";
-import LogIn from "../LogIn";
+import UserMenu from "../UserMenu";
 import BtnTheme from "../BtnTheme";
 import BtnLanguage from "../BtnLanguage";
 import { authSelectors } from '../../redux/auth';
@@ -22,17 +22,19 @@ const AppBar = ({ t, themeLight, isAuthenticated}) => {
         >
           {t("homeView")}
         </NavLink>
-        {isAuthenticated && <NavLink
-          exact
-          to={routes.phonebook}
-          className={themeLight ? styles.link : styles.linkDark}
-          activeClassName={styles.linkActive}
-        >
-          {t("phonebookView")}
-        </NavLink>}
+        {isAuthenticated && (
+          <NavLink
+            exact
+            to={routes.phonebook}
+            className={themeLight ? styles.link : styles.linkDark}
+            activeClassName={styles.linkActive}
+          >
+            {t("phonebookView")}
+          </NavLink>
+        )}
       </div>
       <div className={styles.box}>
-        {isAuthenticated ? <LogIn /> : <AuthNav />}
+        {isAuthenticated ? <UserMenu /> : <AuthNav />}
         <BtnTheme />
         <BtnLanguage />
       </div>

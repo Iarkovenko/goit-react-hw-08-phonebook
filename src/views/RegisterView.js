@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import { getTheme } from '../redux/theme/theme-selectors';
-import { authOperations } from '../redux/auth';
+import { authOperations, authSelectors } from '../redux/auth';
 import styles from './RegisterView.module.css';
 
 
@@ -12,6 +12,7 @@ class RegisterView extends Component {
     themeLight: PropTypes.bool.isRequired,
     t: PropTypes.func,
     onRegister: PropTypes.func.isRequired,
+    registrationError: PropTypes.string
   };
 
   state = {
@@ -76,6 +77,9 @@ class RegisterView extends Component {
               onChange={this.handleChange}
             />
           </label>
+          {this.props.registrationError && (
+            <p className={styles.error}>{this.props.registrationError}</p>
+          )}
           <button
             className={this.props.themeLight ? styles.btn : styles.btnDark}
             type="submit"
@@ -91,6 +95,7 @@ class RegisterView extends Component {
 const mapStateToProps = state => {
     return {
         themeLight: getTheme(state),
+        registrationError: authSelectors.getErrorMessage(state)
     };
 };
 const mapDispatchToProps =  {
